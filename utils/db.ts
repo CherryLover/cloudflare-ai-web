@@ -1,4 +1,4 @@
-import Dexie, {type Table} from 'dexie';
+import Dexie, { type Table } from 'dexie';
 
 export class Database extends Dexie {
     history!: Table<HistoryItem>
@@ -46,7 +46,7 @@ export class Database extends Dexie {
     }
 
     addTab(label: string) {
-        return DB.tab.add({label, created_at: Date.now()})
+        return DB.tab.add({ label, created_at: Date.now() })
     }
 
     deleteTabAndHistory(id: number) {
@@ -68,27 +68,29 @@ export const initialSettings = {
 export type Settings = typeof initialSettings
 
 export const uniModals: Model[] = [
-    {
-        id: 'gemini-1.5-flash',
-        name: 'Gemini 1.5 flash',
-        provider: 'google',
-        type: 'universal'
-    },
-    {
-        id: 'gemini-1.5-pro',
-        name: 'Gemini 1.5 Pro',
-        provider: 'google',
-        type: 'universal'
-    }
+    // {
+    //     id: 'gemini-1.5-flash',
+    //     name: 'Gemini 1.5 flash',
+    //     provider: 'google',
+    //     type: 'universal'
+    // },
+    // {
+    //     id: 'gemini-1.5-pro',
+    //     name: 'Gemini 1.5 Pro',
+    //     provider: 'google',
+    //     type: 'universal'
+    // }
 ]
 
-export const textGenModels: Model[] = [{
-    id: 'gpt-3.5-turbo',
-    name: 'ChatGPT-3.5-turbo',
-    provider: 'openai',
-    endpoint: 'chat/completions',
-    type: 'chat'
-}, {
+export const textGenModels: Model[] = [
+//     {
+//     id: 'gpt-3.5-turbo',
+//     name: 'ChatGPT-3.5-turbo',
+//     provider: 'openai',
+//     endpoint: 'chat/completions',
+//     type: 'chat'
+// },
+ {
     id: '@cf/qwen/qwen1.5-14b-chat-awq',
     name: 'qwen1.5-14b-chat-awq',
     provider: 'workers-ai',
@@ -98,12 +100,20 @@ export const textGenModels: Model[] = [{
     name: 'openchat-3.5-0106',
     provider: 'workers-ai',
     type: 'chat'
-}, {
+},
+{
     id: '@cf/google/gemma-7b-it-lora',
     name: 'gemma-7b-it-lora',
     provider: 'workers-ai',
     type: 'chat'
-}, {
+},
+{
+    id: '@cf/google/gemma-2b-it-lora',
+    name: 'cf/google/gemma-2b-it-lora',
+    provider: 'workers-ai',
+    type: 'chat'
+},
+{
     id: '@hf/thebloke/openhermes-2.5-mistral-7b-awq',
     name: 'openhermes-2.5-mistral-7b-awq',
     provider: 'workers-ai',
